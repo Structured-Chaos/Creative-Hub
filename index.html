@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structured Chaos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Q2.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10px;
+            background: #fff;
+            position: fixed;
+            width: 98%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #ccc;
+        }
+
+        header .logo img {
+            position: absolute;
+            left: 50%;
+             transform: translateX(-50%); /* Exakte Zentrierung des Logos */
+            height: 20px; /* Größe des Logos angepasst */
+            margin-top: -10px;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+            transform: translateX(-50%)
+        }
+
+        header nav a {
+            margin-top: -10px;
+            margin-left: 15px;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 19px;
+            border: 1px solid #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .shop-button:hover {
+            background-color: #000;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        #intro {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 25vh;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #structured-chaos-text {
+            font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    line-height: 1.3; /* Verringert den Zeilenabstand */
+    white-space: normal; /* Normales Verhalten beim Textumbruch */
+    text-align: center; /* Zentriert den Text */
+    margin: 0 auto; /* Zentriert den Block auf der Seite */
+    max-width: 80%;
+    margin-bottom: -35px;
+        }
+
+        @media only screen and (max-width: 768px) {
+    #structured-chaos-text {
+        font-size: 18px; /* Kleinere Schriftgröße für kleinere Bildschirme */
+        max-width: 90%; /* Leicht größere Breite auf kleinen Bildschirmen */
+    }
+}
+        #collection h2 {
+            margin-top: -50px;
+            margin-bottom: 0px;
+            margin-left: 100px;
+            flex: 1;
+            font-family: 'Helvetica', sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 20px
+        }
+
+        #collection h2::before {
+            content: "";
+            font-family: 'Helvetica', sans-serif;
+            text-transform: uppercase;
+            margin-top: 50px;
+        }
+
+        .designer-name {
+            font-family: 'Helvetica', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 0.5em;
+            color: #333;
+            font-style: italic;
+            text-transform: none;
+            font-weight: bold;
+        
+        }
+
+        .pinnwand-container {
+            position: relative;
+            margin: 0px auto;
+            width: 100%;
+
+        }
+
+        .pinnwand-container img.pinnwand {
+            width: 100%;
+            height: auto;
+        }
+
+        .pinnwand-container .photo {
+            position: absolute;
+            width: 30%;
+            transition: all 0.4s ease;
+        }
+
+        .pinnwand-container .photo:hover {
+            transform: scale(1.1);
+        }
+
+        #photo1 { top: 35px; left: 4%; transform: rotate(-3deg); }
+        #photo2 { top: 40px; right: 3%; transform: rotate(9deg); }
+        #photo3 { top: 34px; left: 36%; transform: rotate(1deg); }
+        #photo4 { bottom: 40px; right: 8%; transform: rotate(-5deg); }
+
+        .pinnwand-container {
+    position: relative; /* Ermöglicht absolute Positionierung innerhalb des Containers */
+}
+
+.centered-button {
+    position: absolute;
+    top: 50%; /* Vertikale Zentrierung */
+    left: 50%; /* Horizontale Zentrierung */
+    transform: translate(-50%, -50%); /* Zentriert den Button exakt */
+    z-index: 10; /* Stellt sicher, dass der Button über dem Bild liegt */
+}
+
+.collection-blog-button {
+    margin-left: 10px;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 25px;
+            border: 2px solid #000000;
+            padding: 5px 22px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            z-index: 2;
+}
+
+.collection-blog-button:hover {
+    background-color: black;
+    color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    .collection-blog-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+        .video-section video {
+            width: 100%;
+            height: auto;
+        }
+
+        .platform {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold; /* Bold-Schrift */
+    font-size: 20px; /* Schriftgröße anpassen */
+    text-align: center; /* Zentriert den Text */
+    margin: 0 auto; /* Zentriert den Textblock */
+    max-width: 80%; /* Sorgt für Platz links und rechts */
+    padding: 20px 0; /* Abstand oben und unten */
+    line-height: 1.6; /* Verbessert die Lesbarkeit durch größeren Zeilenabstand */
+}
+
+
+        .chaos-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .chaos-img {
+            width: 280px;
+            height: auto;
+            margin: 0 20px;
+            margin-top: -30px;
+            position: absolute;
+        }
+
+        .chaos-img-right {
+    margin-bottom: 0px; /* Beispiel für einen separaten Stil */
+    /* Weitere Stile können hier hinzugefügt werden */
+    position: absolute;
+}
+
+/* Spezifische Stile für das linke Bild */
+.chaos-img-left {
+    margin-bottom: 70px;
+    position: absolute;
+}
+
+@keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .rotating-image {
+            animation: spin 5s linear infinite;
+            width: 300px;
+            z-index: 3;
+            position:sticky;
+        
+        }
+
+        .chaos-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        
+        }
+
+        .chaos-img {
+            width: 300px;
+            height: auto;
+        }
+
+        .chaos-button {
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #000;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .chaos-button:hover {
+            background-color: #000;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+
+        .Skizze {
+    margin-top: 0px;
+    margin-left: 5px;
+    width: 1000px;
+    transform: rotate(0deg);
+    max-width: 90%; /* Begrenzung der Breite auf 100% des Elternelements */
+    display: block;
+    position: relative; /* Positioniert das Element relativ zum normalen Dokumentfluss */
+    z-index: 1; /* Die Skizze hat einen niedrigeren z-index */
+}
+
+.Questionmark {
+    margin-top: -400px;
+    margin-left: 140px;
+    margin-bottom: 150px;
+    position: relative;
+    z-index: 2;
+    width: 100%; /* Passt die Breite an das Elternelement an */
+    max-width: 200px; /* Begrenze die maximale Breite des Bildes */
+    display: block;
+
+}
+
+        .image-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .image-button img {
+            width: 100px;
+            height: auto;
+            transition: all 0.4s ease;
+        }
+
+        .image-button:hover {
+            transform: scale(1.5);
+        }
+        .created-by {
+            margin-left: 20px;
+        }
+
+        .creator-name {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .creator-quote {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-style: italic;
+        }
+
+        .magda-image {
+            margin-top: 0px;
+            margin-left: 5px;
+            width: 800px;
+            transform: rotate(90deg);
+            max-width: 80%; /* Begrenzung der Breite auf 100% des Elternelements */
+            display: block; /* Entfernt mögliche Leerzeichen um das Bild */
+
+        }
+
+        .marquee {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 24px;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: marquee 8s linear infinite;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            z-index: 3;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* Container für die beiden Bilder */
+.image-container {
+    display: flex;
+    justify-content: space-between; /* Abstand zwischen den Bildern */
+    align-items: flex-start; /* Vertikale Ausrichtung */
+    flex-wrap: wrap; /* Damit sich die Bilder untereinander anordnen, wenn der Bildschirm zu schmal wird */
+    padding: 20px;
+}
+
+/* Allgemeine Bild-Stile */
+.image-container img {
+    max-width: 45%; /* Bilder nehmen maximal 45% der Containerbreite ein */
+    height: auto; /* Höhe passt sich proportional zur Breite an */
+    transition: all 0.3s ease; /* Animation bei Größenanpassungen */
+}
+
+/* Anpassung der Bildgröße und Position für AI */
+.image-container .PERSON {
+    margin-right: 0px; /* Abstand zwischen den beiden Bildern */
+    margin-top: 0px; /* Position individuell anpassen */
+    max-width: 50%; 
+}
+
+
+.image-container .AI {
+    margin-left: 0px; /* Abstand zwischen den beiden Bildern */
+    margin-top: 0px; /* Position individuell anpassen */
+    max-width: 40%; /* Maximal 50% der Containerbreite */
+    
+}
+
+#1bild { top: 0px; left: 4%; transform: rotate(-3deg); }
+#photo2 { top: 40px; right: 3%; transform: rotate(9deg); }
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="https://structuredchaos.at/"><img src="LOGO1.png" alt="Logo"></a>
+        </div>
+        <nav>
+            <a href="https://structuredchaos.at/collections/all" class="shop-button">SHOP</a>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <p id="structured-chaos-text"></p>
+    </section>
+
+    <section id="collection">
+        <div class="pinnwand-container">
+            <img src="WAS1.jpeg" alt="Pinnwand" class="pinnwand">
+            <img src="OTTO1.png" alt="Otto" class="photo" id="photo1">
+            <img src="JACK1.png" alt="Jack" class="photo" id="photo2">
+            <img src="AERIS1.png" alt="Aeris" class="photo" id="photo3">
+            
+            <!-- Der Button in der Mitte von Skizze 1 -->
+            <div class="centered-button">
+                <button class="collection-blog-button" onclick="window.location.href='collection-blog.html'">COLLECTION BLOG</button>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <video autoplay loop muted playsinline>
+            <source src="butti.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <section>
+        <div class="platform">
+            This ever-evolving platform embraces the beauty of human resourcefulness,
+                inviting you to unlock your creative potential and bring your ideas to life.
+                Structured Chaos, shaped by passionate creators, embodies a philosophy
+                where the interplay of structure and chaos forms a seamless dance, 
+                driving innovation and creativity forward.
+        </div>
+    </section>
+
+    <!-- Chaos Theory Section -->
+    <section class="chaos-section">
+
+        <button class="chaos-button" onclick="window.location.href='chaos.html'">CHAOS THEORY</button>
+        <img src="WELLE2.png" alt="Welle" class="rotating-image">
+    </section>
+
+    <section style="display: flex; align-items: center;">
+        <img src="MAGDA1.png" alt="Magda" class="magda-image">
+        <div class="created-by">
+            <p class="creator-name">created by Magda Pock</p>
+            <p class="creator-quote">Chaos makes the muse</p>
+        </div>
+    </section>
+
+    <section class="Skizze">
+        <img src="skizze-03 Kopie.png" alt="skizze-03" class="Skizze">
+    </section>
+
+
+
+    <section>
+        <div class="marquee">
+            CRAFT YOUR REALITY.
+        </div>
+    </section>
+
+    <section class="Questionmark">
+        <button class="image-button" onclick="window.location.href='q1-page.html'">
+            <img src="Q1.png" alt="Q1">
+        </button>
+    </section>
+
+
+
+    <div class="image-container">
+
+        <img src="AI1.png" alt="AI Bild" class="AI" id="1bild">
+        <img src="PERSON1.png" alt="Person Bild" class="PERSON" id="2bild">
+
+    </div>
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const structuredChaosText = document.getElementById('structured-chaos-text');
+            const text = `
+                Welcome to our Creative Hub.
+            
+               `;
+
+            let index = 0;
+            const speed = 50;
+
+            function typeWriter() {
+                if (index < text.length) {
+                    structuredChaosText.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+
+            typeWriter();
+        });
+    </script>
+</body>
+</html>
+
