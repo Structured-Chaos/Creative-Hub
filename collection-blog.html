@@ -49,17 +49,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-        }
-
-        .video-section {
-            flex: 0.7;
-            padding-right: 10px;
-        }
-
-        .video-section video {
-            width: 100%;
-            height: auto;
-            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
         .text-section {
@@ -67,7 +57,7 @@
             padding-left: 20px;
         }
 
-        .answer  {
+        .answer {
             font-style: italic;
             font-size: 16px;
             color: #f9f3f3;
@@ -75,7 +65,7 @@
         }
 
         .question {
-        font: bold;
+            font-weight: bold;
             font-size: 16px;
             color: #f9f3f3;
             margin-bottom: 10px;
@@ -93,43 +83,71 @@
             line-height: 1.5;
         }
 
-        /* Horizontales Bild-Karussell */
+        /* Vertikales Bild-Karussell */
         .image-carousel {
-            display: flex;
+            flex-basis: 200px; /* Feste Breite für das Karussell */
             overflow: hidden;
-            margin-top: 50px;
-            width: 100%; /* Setze Breite auf den Container */
+            margin-top: 20px;
+            height: 400px; /* Web-Mode Höhe */
+            margin-left: 20px;
         }
 
         .image-carousel .carousel-track {
             display: flex;
-            animation: scroll-left 155s linear infinite; /* Animation für das horizontale Scrollen */
+            flex-direction: column;
+            animation: scroll-up 220s linear infinite;
         }
 
         .image-carousel img {
-            width: 300px;
-            height: 300px;
+            width: 100%;
+            height: auto;
             object-fit: cover;
-            margin-right: 5px;
+            margin-bottom: 10px;
         }
 
-        @keyframes scroll-left {
+        @keyframes scroll-up {
             0% {
-                transform: translateX(0);
+                transform: translateY(0);
             }
             100% {
-                transform: translateX(-100%);
+                transform: translateY(-100%);
             }
         }
 
-        .right-image {
-        margin-top: 70px;
-        margin-left: 0px;
-        position:absolute;
+        /* Anpassung für kleinere Bildschirme */
+        @media only screen and (max-width: 768px) {
+            .content {
+                flex-direction: row;
+            }
 
+            .text-section {
+                flex-basis: 40%;
+                padding-left: 15px;
+            }
 
-}
-        
+            .image-carousel {
+                flex-basis: 30%;
+                height: 700px; /* Mehr Platz für das Karussell im mobilen Modus */
+            }
+
+            .image-carousel img {
+                width: 100px;
+                height: auto;
+            }
+        }
+
+        /* Bild ganz unten */
+        .end-image {
+            width: 100%;
+            height: auto;
+            margin-top: 40px;
+        }
+
+        .end-image1 {
+            width: 100%;
+            height: auto;
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
@@ -141,164 +159,169 @@
     <h1>Structured Chaos X David Weiler</h1>
 
     <div class="content">
-        <!-- Video Section -->
-        <div class="video-section">
-            <video autoplay loop muted>
-                <source src="AERIS REEL_1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <!-- Zweites Video unter dem ersten -->
-            <video autoplay loop muted>
-                <source src="0905.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
         <!-- Text Section -->
         <div class="text-section">
             <h2>transcribed interview with David - an upcoming artist - who has joined an internship at Structured Chaos in 2024</h2>
-         
 
             <!-- Interview content -->
             <p class="question">1. How did you come up with the idea to connect to us, and what attracted you to the brand identity?</p>
             <p class="answer">"I didn’t actually spend much time focusing on the brand identity initially. It came up in one of my classes about Viennese brands. I reached out and Structured Chaos really caught my attention, especially the butterfly theme."</p>
             <p class="question">2. You started with us, and by the second week, you were already creating your own designs. I'm curious about your process and the idea behind them. Had you already worked with the contrasts of structure and chaos, or did that flow naturally into your creative process?</p>
-            <p class="answer">"The thought behind the designs, especially with the faces, was to work with unstructured, angular shapes — playing with those sharp edges. You can see this in especially in "OTTO" design. The sharp, pointy and uncoordinated elements are meant to represent chaos, something that isn’t smooth or straight. To play with chaotic elements was the main idea driving my designs."</p>
+            <p class="answer">"The thought behind the designs, especially with the faces, was to work with unstructured, angular shapes — playing with those sharp edges. You can see this in especially in 'OTTO' design. The sharp, pointy and uncoordinated elements are meant to represent chaos, something that isn’t smooth or straight. To play with chaotic elements was the main idea driving my designs."</p>
             <p class="question">3. What message did you want to convey with your designs? Was there a concrete message, or was it more about expressing creativity?</p>
             <p class="answer">"Exactly, for me it was about the interplay between angular, unstructured shapes and the soft colors in the designs. The goal was for it to come together harmoniously, blending the harshness of the lines with the softness of the colors. The main message is to balance structure and chaos."</p>
             <p class="question">4. What are your favorite designs?</p>
-            <p class="answer">"Out of the faces, I think I like "Otto" the most — it’s the coolest for me.</p>
+            <p class="answer">"Out of the faces, I think I like 'Otto' the most — it’s the coolest for me."</p>
             <p class="question">5. Would you say that the environment here influenced your work in any way? How did the creative spirit and work atmosphere affect you?</p>
             <p class="answer">"Yes, absolutely. When you're surrounded by people who are excited about what they’re doing, it’s contagious. You get motivated faster because you see others have a passion for it, and that drives you. And that’s exactly my thing—I love working on creative projects. It really clicked for me."</p>
-
             <p class="question">6. So you didn’t really experience creative blocks? You found your flow quickly?</p>
             <p class="answer">"Exactly. I only experience creative blocks when I feel trapped or stressed - When I’m stressed, I can’t create. I just sit there, staring at a blank sheet of paper, and nothing happens. But here, the ideas came quickly. I knew pretty early on that I wanted to work with faces, playing around with proportions. So overall, not many creative blocks."</p>
-
             <p class="question">7. After four weeks, do you feel like you've formed a clear picture of the brand identity? Would you say that structure and chaos are something you work with and find inspiring?</p>
             <p class="answer">"Yes, definitely — especially the idea of chaos theory. The notion that every small detail has a significant impact plays into the faces I created. One eye is slightly lower, one is black, the other is white, and that makes a huge difference."</p>
         </div>
-    </div>
 
-            <!-- Weitere Interview-Fragen und -Antworten hier einfügen -->
+        <!-- Vertikales Karussell -->
+        <div class="image-carousel">
+            <div class="carousel-track">
+                <img src="KAR1.JPG" alt="Bild 1">
+                <img src="BLOGG4.png" alt="Bild 20">
+                <img src="KAR15.JPG" alt="Bild 15">
+                <img src="KAR2.JPG" alt="Bild 2">
+                <img src="KAR3.JPG" alt="Bild 3">
+                <img src="BLOGG1.png" alt="Bild 17">
+                <img src="KAR4.JPG" alt="Bild 4">
+                <img src="KAR5.JPG" alt="Bild 5">
+                <img src="KAR6.JPG" alt="Bild 6">
+                <img src="KAR7.jpeg" alt="Bild 7">
+                <img src="BLOGG3.png" alt="Bild 19">
+                <img src="KAR9.jpeg" alt="Bild 9">
+                <img src="KAR10.png" alt="Bild 10">
+                <img src="KAR11.JPG" alt="Bild 11">
+                <img src="BLOGG5.png" alt="Bild 21">
+                <img src="BLOGG2.png" alt="Bild 18">
+                <img src="KAR12.JPG" alt="Bild 12">
+                <img src="KAR13.JPG" alt="Bild 13">
+                <img src="KAR8.jpeg" alt="Bild 8">
+                <img src="KAR14.JPG" alt="Bild 14">
+                
+                <img src="KAR1.JPG" alt="Bild 1">
+                <img src="BLOGG4.png" alt="Bild 20">
+                <img src="KAR15.JPG" alt="Bild 15">
+                <img src="KAR2.JPG" alt="Bild 2">
+                <img src="KAR3.JPG" alt="Bild 3">
+                <img src="BLOGG1.png" alt="Bild 17">
+                <img src="KAR4.JPG" alt="Bild 4">
+                <img src="KAR5.JPG" alt="Bild 5">
+                <img src="KAR6.JPG" alt="Bild 6">
+                <img src="KAR7.jpeg" alt="Bild 7">
+                <img src="BLOGG3.png" alt="Bild 19">
+                <img src="KAR9.jpeg" alt="Bild 9">
+                <img src="KAR10.png" alt="Bild 10">
+                <img src="KAR11.JPG" alt="Bild 11">
+                <img src="BLOGG5.png" alt="Bild 21">
+                <img src="BLOGG2.png" alt="Bild 18">
+                <img src="KAR12.JPG" alt="Bild 12">
+                <img src="KAR13.JPG" alt="Bild 13">
+                <img src="KAR8.jpeg" alt="Bild 8">
+                <img src="KAR14.JPG" alt="Bild 14">
 
+                <img src="KAR1.JPG" alt="Bild 1">
+                <img src="BLOGG4.png" alt="Bild 20">
+                <img src="KAR15.JPG" alt="Bild 15">
+                <img src="KAR2.JPG" alt="Bild 2">
+                <img src="KAR3.JPG" alt="Bild 3">
+                <img src="BLOGG1.png" alt="Bild 17">
+                <img src="KAR4.JPG" alt="Bild 4">
+                <img src="KAR5.JPG" alt="Bild 5">
+                <img src="KAR6.JPG" alt="Bild 6">
+                <img src="KAR7.jpeg" alt="Bild 7">
+                <img src="BLOGG3.png" alt="Bild 19">
+                <img src="KAR9.jpeg" alt="Bild 9">
+                <img src="KAR10.png" alt="Bild 10">
+                <img src="KAR11.JPG" alt="Bild 11">
+                <img src="BLOGG5.png" alt="Bild 21">
+                <img src="BLOGG2.png" alt="Bild 18">
+                <img src="KAR12.JPG" alt="Bild 12">
+                <img src="KAR13.JPG" alt="Bild 13">
+                <img src="KAR8.jpeg" alt="Bild 8">
+                <img src="KAR14.JPG" alt="Bild 14">
+
+                <img src="KAR1.JPG" alt="Bild 1">
+                <img src="BLOGG4.png" alt="Bild 20">
+                <img src="KAR15.JPG" alt="Bild 15">
+                <img src="KAR2.JPG" alt="Bild 2">
+                <img src="KAR3.JPG" alt="Bild 3">
+                <img src="BLOGG1.png" alt="Bild 17">
+                <img src="KAR4.JPG" alt="Bild 4">
+                <img src="KAR5.JPG" alt="Bild 5">
+                <img src="KAR6.JPG" alt="Bild 6">
+                <img src="KAR7.jpeg" alt="Bild 7">
+                <img src="BLOGG3.png" alt="Bild 19">
+                <img src="KAR9.jpeg" alt="Bild 9">
+                <img src="KAR10.png" alt="Bild 10">
+                <img src="KAR11.JPG" alt="Bild 11">
+                <img src="BLOGG5.png" alt="Bild 21">
+                <img src="BLOGG2.png" alt="Bild 18">
+                <img src="KAR12.JPG" alt="Bild 12">
+                <img src="KAR13.JPG" alt="Bild 13">
+                <img src="KAR8.jpeg" alt="Bild 8">
+                <img src="KAR14.JPG" alt="Bild 14">
+
+                <img src="KAR1.JPG" alt="Bild 1">
+                <img src="BLOGG4.png" alt="Bild 20">
+                <img src="KAR15.JPG" alt="Bild 15">
+                <img src="KAR2.JPG" alt="Bild 2">
+                <img src="KAR3.JPG" alt="Bild 3">
+                <img src="BLOGG1.png" alt="Bild 17">
+                <img src="KAR4.JPG" alt="Bild 4">
+                <img src="KAR5.JPG" alt="Bild 5">
+                <img src="KAR6.JPG" alt="Bild 6">
+                <img src="KAR7.jpeg" alt="Bild 7">
+                <img src="BLOGG3.png" alt="Bild 19">
+                <img src="KAR9.jpeg" alt="Bild 9">
+                <img src="KAR10.png" alt="Bild 10">
+                <img src="KAR11.JPG" alt="Bild 11">
+                <img src="BLOGG5.png" alt="Bild 21">
+                <img src="BLOGG2.png" alt="Bild 18">
+                <img src="KAR12.JPG" alt="Bild 12">
+                <img src="KAR13.JPG" alt="Bild 13">
+                <img src="KAR8.jpeg" alt="Bild 8">
+                <img src="KAR14.JPG" alt="Bild 14">
+
+                <img src="KAR1.JPG" alt="Bild 1">
+                <img src="BLOGG4.png" alt="Bild 20">
+                <img src="KAR15.JPG" alt="Bild 15">
+                <img src="KAR2.JPG" alt="Bild 2">
+                <img src="KAR3.JPG" alt="Bild 3">
+                <img src="BLOGG1.png" alt="Bild 17">
+                <img src="KAR4.JPG" alt="Bild 4">
+                <img src="KAR5.JPG" alt="Bild 5">
+                <img src="KAR6.JPG" alt="Bild 6">
+                <img src="KAR7.jpeg" alt="Bild 7">
+                <img src="BLOGG3.png" alt="Bild 19">
+                <img src="KAR9.jpeg" alt="Bild 9">
+                <img src="KAR10.png" alt="Bild 10">
+                <img src="KAR11.JPG" alt="Bild 11">
+                <img src="BLOGG5.png" alt="Bild 21">
+                <img src="BLOGG2.png" alt="Bild 18">
+                <img src="KAR12.JPG" alt="Bild 12">
+                <img src="KAR13.JPG" alt="Bild 13">
+                <img src="KAR8.jpeg" alt="Bild 8">
+                <img src="KAR14.JPG" alt="Bild 14">
+       
+
+                
+
+                
+
+
+            </div>
         </div>
     </div>
 
-<!-- Horizontales Bild-Karussell -->
-<div class="image-carousel">
-    <div class="carousel-track">
-        <img src="KAR1.JPG" alt="Bild 1">
-        <img src="KAR2.JPG" alt="Bild 2">
-        <img src="KAR3.JPG" alt="Bild 3">
-        <img src="KAR4.JPG" alt="Bild 4">
-        <img src="KAR5.JPG" alt="Bild 5">
-        <img src="KAR6.JPG" alt="Bild 6">
-        <img src="KAR11.JPG" alt="Bild 11">
-        <img src="KAR7.jpeg" alt="Bild 7">
-        <img src="KAR14.JPG" alt="Bild 14">
-        <img src="KAR12.JPG" alt="Bild 12">
-        <img src="KAR8.jpeg" alt="Bild 8">
-        <img src="KAR9.jpeg" alt="Bild 9">
-        <img src="KAR15.JPG" alt="Bild 15">
-        <img src="KAR13.JPG" alt="Bild 13">
-
-        <img src="KAR16.JPG" alt="Bild 16">
-
-        
-        <img src="KAR1.JPG" alt="Bild 1">
-        <img src="KAR2.JPG" alt="Bild 2">
-        <img src="KAR3.JPG" alt="Bild 3">
-        <img src="KAR4.JPG" alt="Bild 4">
-        <img src="KAR5.JPG" alt="Bild 5">
-        <img src="KAR6.JPG" alt="Bild 6">
-        <img src="KAR11.JPG" alt="Bild 11">
-        <img src="KAR7.jpeg" alt="Bild 7">
-        <img src="KAR14.JPG" alt="Bild 14">
-        <img src="KAR12.JPG" alt="Bild 12">
-        <img src="KAR8.jpeg" alt="Bild 8">
-        <img src="KAR9.jpeg" alt="Bild 9">
-        <img src="KAR15.JPG" alt="Bild 15">
-        <img src="KAR13.JPG" alt="Bild 13">
-        <img src="KAR16.JPG" alt="Bild 16">
-
-
-        <img src="KAR1.JPG" alt="Bild 1">
-        <img src="KAR2.JPG" alt="Bild 2">
-        <img src="KAR3.JPG" alt="Bild 3">
-        <img src="KAR4.JPG" alt="Bild 4">
-        <img src="KAR5.JPG" alt="Bild 5">
-        <img src="KAR6.JPG" alt="Bild 6">
-        <img src="KAR11.JPG" alt="Bild 11">
-        <img src="KAR7.jpeg" alt="Bild 7">
-        <img src="KAR14.JPG" alt="Bild 14">
-        <img src="KAR12.JPG" alt="Bild 12">
-        <img src="KAR8.jpeg" alt="Bild 8">
-        <img src="KAR9.jpeg" alt="Bild 9">
-        <img src="KAR15.JPG" alt="Bild 15">
-        <img src="KAR13.JPG" alt="Bild 13">
-        <img src="KAR10.jpeg" alt="Bild 10">
-        <img src="KAR16.JPG" alt="Bild 16">
-
-
-        <img src="KAR1.JPG" alt="Bild 1">
-        <img src="KAR2.JPG" alt="Bild 2">
-        <img src="KAR3.JPG" alt="Bild 3">
-        <img src="KAR4.JPG" alt="Bild 4">
-        <img src="KAR5.JPG" alt="Bild 5">
-        <img src="KAR6.JPG" alt="Bild 6">
-        <img src="KAR11.JPG" alt="Bild 11">
-        <img src="KAR7.jpeg" alt="Bild 7">
-        <img src="KAR14.JPG" alt="Bild 14">
-        <img src="KAR12.JPG" alt="Bild 12">
-        <img src="KAR8.jpeg" alt="Bild 8">
-        <img src="KAR9.jpeg" alt="Bild 9">
-        <img src="KAR15.JPG" alt="Bild 15">
-        <img src="KAR13.JPG" alt="Bild 13">
-        <img src="KAR10.jpeg" alt="Bild 10">
-        <img src="KAR16.JPG" alt="Bild 16">
-
-
-        <img src="KAR1.JPG" alt="Bild 1">
-        <img src="KAR2.JPG" alt="Bild 2">
-        <img src="KAR3.JPG" alt="Bild 3">
-        <img src="KAR4.JPG" alt="Bild 4">
-        <img src="KAR5.JPG" alt="Bild 5">
-        <img src="KAR6.JPG" alt="Bild 6">
-        <img src="KAR11.JPG" alt="Bild 11">
-        <img src="KAR7.jpeg" alt="Bild 7">
-        <img src="KAR14.JPG" alt="Bild 14">
-        <img src="KAR12.JPG" alt="Bild 12">
-        <img src="KAR8.jpeg" alt="Bild 8">
-        <img src="KAR9.jpeg" alt="Bild 9">
-        <img src="KAR15.JPG" alt="Bild 15">
-        <img src="KAR13.JPG" alt="Bild 13">
-
-        <img src="KAR16.JPG" alt="Bild 16">
-
-
-        <img src="KAR1.JPG" alt="Bild 1">
-        <img src="KAR2.JPG" alt="Bild 2">
-        <img src="KAR3.JPG" alt="Bild 3">
-        <img src="KAR4.JPG" alt="Bild 4">
-        <img src="KAR5.JPG" alt="Bild 5">
-        <img src="KAR6.JPG" alt="Bild 6">
-        <img src="KAR11.JPG" alt="Bild 11">
-        <img src="KAR7.jpeg" alt="Bild 7">
-        <img src="KAR14.JPG" alt="Bild 14">
-        <img src="KAR12.JPG" alt="Bild 12">
-        <img src="KAR8.jpeg" alt="Bild 8">
-        <img src="KAR9.jpeg" alt="Bild 9">
-        <img src="KAR15.JPG" alt="Bild 15">
-        <img src="KAR13.JPG" alt="Bild 13">
-        <img src="KAR10.jpeg" alt="Bild 10">
-        <img src="KAR16.JPG" alt="Bild 16">
-
-    </div>
-</div>
-
-
-    <!-- Right Image Section -->
-    <img src="FILL3.png" alt="Otto Bild" class="right-image">
+    <!-- End Image -->
+    <img src="Design_David Kopie.png" alt="Design David" class="end-image1">
+    <img src="COLLA.png" alt="COLLA" class="end-image">
 
 </div>
 
